@@ -33,13 +33,17 @@ def get_broadcast_offer_from_server(IP, UDP_Port):
 
 
 while 1:
-    
+    broadcast_client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
+    broadcast_client.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+    broadcast_client.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    broadcast_client.bind(("", UDP_Port))
     print("Client started, listening for offer requests...")
-    broadcast_client = get_broadcast_offer_from_server(IP, UDP_Port)
+    #broadcast_client = get_broadcast_offer_from_server(IP, UDP_Port)
     data, addr = broadcast_client.recvfrom(1024)
-    #msg = struct.unpack('4s2sh', data)
+    
 
     #read packet from server by packet format
+    #msg = struct.unpack('4s2sh', data)
     msg = struct.unpack('!IbH', data)
     host = addr[0]  # Standard loopback interface address (localhost)
     port = msg[2]
