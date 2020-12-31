@@ -15,7 +15,7 @@ blue = u"\u001b[34m"
 reset =  u"\u001b[0m"
 red = u"\u001b[31m"
 
-#IP = S.get_if_addr("eth1")
+IP = S.get_if_addr("eth1")
 #broadcastIP = "172.1.0.255"
 broadcast_port = 13117  # Port to listen on (non-privileged ports are > 1023)
 tcp_port = 8080  # Port to listen on (non-privileged ports are > 1023)
