@@ -13,7 +13,7 @@ import getch
 group_name = "shimons"
 
 
-IP = S.get_if_addr("eth1")
+#IP = S.get_if_addr("eth1")
 UDP_Port = 13117
 
 
@@ -28,7 +28,7 @@ def get_broadcast_offer_from_server(IP, UDP_Port):
     broadcast_client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
     broadcast_client.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
     broadcast_client.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    broadcast_client.bind((IP, UDP_Port))
+    broadcast_client.bind(("", UDP_Port))
     return broadcast_client
 
 
