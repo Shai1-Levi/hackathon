@@ -13,7 +13,7 @@ import getch
 group_name = "shimons"
 
 
-IP = S.get_if_addr("eth1")
+#IP = S.get_if_addr("eth1")
 UDP_Port = 13117
 
 
